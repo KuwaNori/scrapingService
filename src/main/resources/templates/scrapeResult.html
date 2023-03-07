@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${yearMonth}"></p>
+<table>
+    <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+    </tr>
+    <th:block th:each="line, status : ${result}">
+        <th:block th:if="${status.count % 7 == 1}">
+            <tr>
+        </th:block>
+            <td>[[${line}]]</td>
+        <th:block th:if="${status.count % 7 == 0}">
+            </tr>
+        </th:block>
+    </th:block>
+</table>
+</body>
+</html>
